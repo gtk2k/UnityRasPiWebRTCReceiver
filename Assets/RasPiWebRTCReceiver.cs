@@ -83,6 +83,7 @@ public class RasPiWebRTCReceiver : MonoBehaviour
         StartCoroutine(WebRTC.Update());
 
         ws = new WebSocket(signalingURL);
+        ws.SslConfiguration.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
         ws.OnOpen += Ws_OnOpen;
         ws.OnMessage += Ws_OnMessage;
         ws.OnClose += Ws_OnClose;
